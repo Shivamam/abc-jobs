@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="Registeruser"
+			class="com.lithan.module5.UserRegister">
+			<result name="register">Thankyou.jsp</result>
+		</action>
+
+		<action name="Loginuser" class="com.lithan.module5.UserLogin">
+			<result name="login">Dashboard.jsp</result>
+			<result name="backlogin">/UserLogin.jsp</result>
+		</action>
+
+		<action name="logout" class="com.lithan.module5.UserLogin" method="logout">
+			<result name="logout">/UserLogin.jsp</result>
+		</action>
+
+		<action name="UserView" class="com.lithan.module5.UserView">
+			<result name="REPORT">/UserView.jsp</result>
+			<result name="Failure">/Dashboard.jsp</result>
+		</action>
+
+		<action name="updatedetails" class="com.lithan.module5.UserView">
+			<result name="REPORT">/UserUpdate.jsp</result>
+		</action>
+
+		<action name="UserUpdate" class="com.lithan.module5.UserView">
+			<result name="REPORT">/UserUpdate.jsp</result>
+		</action>
+
+		<action name="update" class="com.lithan.module5.UserUpdate">
+			<result name="update" type="chain">UserView</result>
+		</action>
+
+		<action name="UserView" class="com.lithan.module5.UserView">
+			<result name="REPORT">/UserView.jsp</result>
+		</action>
+		
+		<action name="SearchUser" class="com.lithan.module5.UserSearch" method="search">
+		<result name="success">/UserSearch.jsp</result>
+		</action>
+		
+		<action name="UserProfile" class="com.lithan.module5.UserSearch" method="fullprofile">
+		<result name="REPORTS">/publicprofile.jsp</result>
+		</action>
+		
+		<action name="adminLogin" class="com.lithan.module5.AdminLogin">
+			<result name="success">/AdminDashboard.jsp</result>
+		</action>
+
+		<action name="viewUsers" class="com.lithan.module5.AdminSelectAction">
+			<result name="success">/AdminView.jsp</result>
+		</action>
+		
+		<action name="deleteUser" class="com.lithan.module5.AdminDeleteAction">
+			<result name="success">DeleteSuccess.jsp</result>
+		</action>
+		
+		<action name="adminview" class="com.lithan.module5.AdminSelectAction">
+			<result name="success">AdminView.jsp</result>
+		</action>
+		
+		<action name="reset_password" class="com.lithan.module5.UserMail">
+			<result name="success">/ConfirmEmail.jsp</result>
+		</action>
+			</package>
+</struts>
